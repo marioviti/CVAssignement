@@ -1,11 +1,9 @@
-import numpy as np
-
-def QR_Finders(I, tol=0.5):
+def QR_Finders(I, tol=0.5, min_width=20):
     H,W = I.shape
     I[:,0] = 0
     I[:,-1] = 0
-    candidates = []
-    for i in range(0,H,4):
+    candidates = [ [] for i in range(H) ] 
+    for i in range(0,H):
         Ix_i =  I[i,:][1:] - I[i,:][:-1]
         up_j = np.argwhere(Ix_i==1)
         if len(up_j) == 1: continue
@@ -16,12 +14,13 @@ def QR_Finders(I, tol=0.5):
         starts = dwn_j[:-1]
         ends = up_j[1:]
         for j in range(1,len(b)-1):
-            Finder_j = 3.0-tol < b[j]/w[j+1] < 3.0 +tol
-            Finder_j = 3.0-tol < b[j]/w[j] < 3.0 + tol and Finder_j
-            Finder_j = 1.-tol< b[j-1]/w[j] < 1.+tol and Finder_j
-            Finder_j = 1.-tol< b[j+1]/w[j+1] < 1.+tol and Finder_j
-            if Finder_j:
+            if b[j] < min_width: continue
+            is_finder = 3.0-tol < b[j]/w[j+1] < 3.0 +tol
+            is_finder = 3.0-tol < b[j]/w[j] < 3.0 + tol and is_finder
+            is_finder = 1.-tol< b[j-1]/w[j] < 1.+tol and is_finder
+            is_finder = 1.-tol< b[j+1]/w[j+1] < 1.+tol and is_finder
+            if is_finder:
                 A = starts[j-1]
                 B = ends[j+1]
-                candidates += [ (i,A,B) ]
+                candidates[i] += [ [A,B] ]
     return candidates
