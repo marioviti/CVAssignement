@@ -1,3 +1,5 @@
+import numpy as np
+
 def QR_Finders(I, tol=0.5, min_width=20):
     H,W = I.shape
     I[:,0] = 0
