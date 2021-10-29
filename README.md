@@ -1,6 +1,10 @@
 # CVAssignement
 CV assignement
 
+# View Exercise Notebooks online
+
+Clik on the file Ex1 or Ex2 ort Ex2pp and Hit (reload?) if required
+
 # Requirements
 
 Install packages using conda preferably https://docs.conda.io/en/latest/
