@@ -3,6 +3,10 @@ CV assignement
 
 # Requirements
 
+Install packages using conda preferably https://docs.conda.io/en/latest/
+
+Either one by one or by using the envirnment.yml file. (might still need some manual tweak dependeing on the system you are on)
+
 |Name                    |Version                   |Build  |Channel|
 |---|---|---|---|
 |cudatoolkit               |10.2.89              |hfd86e86_1    |anaconda|
