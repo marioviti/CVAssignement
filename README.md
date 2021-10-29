@@ -5,7 +5,7 @@ CV assignement
 
 Install packages using conda preferably https://docs.conda.io/en/latest/
 
-Either one by one or by using the envirnment.yml file. (conda env create -f <path to environment.yml file)
+Either one by one or by using the envirnment.yml file. (conda env create -f <path to environment.yml file>)
 (might still need some manual tweak dependeing on the system you are on)
 
 |Name                    |Version                   |Build  |Channel|
